@@ -11,13 +11,13 @@ export const toggleLauchesListingLoading = (payload) => {
   };
 };
 
-export const toggleLauchesListingDone = (payload) => {
+export const lauchesListingDone = (payload) => {
   return {
-    type: LAUNCHES_LISTING_DONE,
+      type: LAUNCHES_LISTING_DONE,
     payload,
   };
 };
-export const toggleLauchesListingError = (payload) => {
+export const lauchesListingError = (payload) => {
   return {
     type: LAUNCHES_LISTING_ERROR,
     payload,

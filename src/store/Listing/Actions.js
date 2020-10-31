@@ -1,12 +1,25 @@
 import {
   toggleLauchesListingLoading,
-  toggleLauchesListingDone,
-  toggleLauchesListingError,
+  lauchesListingDone,
+  lauchesListingError,
 } from "./ActionTypes";
 
-export const fetchLaunches = () => (dispatch, getState) => {
+import axios from "axios";
+import { LISTING_LAUNCHES } from "../../constants/ApiRoutes";
+
+export const fetchLaunches = () => async (dispatch, getState) => {
   dispatch(toggleLauchesListingLoading(true));
-  // setTimeout(() => {
-  //   dispatch(toggleLauchesListingLoading(false));
-  // }, 5000);
+  try {
+    const { data, status } = await axios.get(LISTING_LAUNCHES, {});
+    if (200 === status) {
+      dispatch(lauchesListingDone(data));
+    } else {
+      dispatch(
+        lauchesListingError({ status: 500, message: "Some Error Occured" })
+      );
+    }
+  } catch (error) {
+    dispatch(lauchesListingError(error));
+    console.log(error, "error on fetch call");
+  }
 };
