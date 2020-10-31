@@ -1,8 +1,13 @@
+@import "./responsive.scss";
+@import "./utilities.scss";
+@import "./reset.scss";
+
 body {
   font-family: "Roboto Condensed", sans-serif;
   background: #eeeeee;
   .card {
     border: none;
+    background: #ffffff;
   }
   .filter-set {
     .filter-set-title {
