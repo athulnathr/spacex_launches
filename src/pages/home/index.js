@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Listig from "./Listing";
-const Home = () => {
+import { connect } from "react-redux";
+import { fetchLaunches } from "../../store/Listing/Actions";
+const Home = (props) => {
+  const { fetchLaunches } = props;
+  useEffect(() => {
+    fetchLaunches();
+  }, []);
   return (
     <>
       <Header />
@@ -18,4 +24,10 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapActionsToProps = (dispatch) => {
+  return {
+    fetchLaunches: () => dispatch(fetchLaunches()),
+  };
+};
+
+export default connect(null, mapActionsToProps)(Home);
