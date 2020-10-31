@@ -1,6 +1,7 @@
 @import "./responsive.scss";
 @import "./utilities.scss";
 @import "./reset.scss";
+@import "./common.scss";
 
 body {
   font-family: "Roboto Condensed", sans-serif;
@@ -12,6 +13,7 @@ body {
   .filter-set {
     .filter-set-title {
       border-bottom: 2px solid #eee;
+      font-size: 1.25rem;
     }
   }
 

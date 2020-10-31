@@ -11,13 +11,11 @@ const Home = (props) => {
   }, []);
   return (
     <>
-      <Header />
-      <div className="container-fluid">
+      <div className="container">
+        <Header />
         <div className="row">
           <Sidebar />
-          <div className="col-sm-9">
-            <Listig />
-          </div>
+          <Listig />
         </div>
       </div>
     </>
