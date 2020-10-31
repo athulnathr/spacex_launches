@@ -2,12 +2,18 @@ import {
   LAUNCHES_LISTING_LOADING,
   LAUNCHES_LISTING_DONE,
   LAUNCHES_LISTING_ERROR,
+  CHANGE_LAUNCH_YEAR_FILTER,
+  CHANGE_SUCCESSFUL_LAUNCH_FILTER,
+  CHANGE_SUCCESSFUL_LAND_FILTER,
 } from "./Types";
 
 const initalState = {
   listLoadig: true,
   listData: null,
   listingError: null,
+  lauchYear: 2006,
+  successfulLaunch: true,
+  successfulLanding: true,
 };
 
 const ListingReducer = (state = initalState, action) => {
@@ -30,6 +36,21 @@ const ListingReducer = (state = initalState, action) => {
         ...state,
         listLoadig: false,
         listingError: action.payload,
+      };
+    case CHANGE_LAUNCH_YEAR_FILTER:
+      return {
+        ...state,
+        lauchYear: action.payload,
+      };
+    case CHANGE_SUCCESSFUL_LAUNCH_FILTER:
+      return {
+        ...state,
+        successfulLaunch: action.payload,
+      };
+    case CHANGE_SUCCESSFUL_LAND_FILTER:
+      return {
+        ...state,
+        successfulLanding: action.payload,
       };
     default:
       return state;

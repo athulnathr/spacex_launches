@@ -2,6 +2,9 @@ import {
   toggleLauchesListingLoading,
   lauchesListingDone,
   lauchesListingError,
+  changeLauchYearFilter,
+  changeLaunchSuccessFilter,
+  changeLandSuccessFilter,
 } from "./ActionTypes";
 
 import axios from "axios";
@@ -22,4 +25,16 @@ export const fetchLaunches = () => async (dispatch, getState) => {
     dispatch(lauchesListingError(error));
     console.log(error, "error on fetch call");
   }
+};
+
+export const launchYearFilterChange = (payload) => (dispatch) => {
+  dispatch(changeLauchYearFilter(payload));
+};
+
+export const launchSuccessFilterChange = (payload) => (dispatch) => {
+  dispatch(changeLaunchSuccessFilter(payload));
+};
+
+export const landSuccessFilterChange = (payload) => (dispatch) => {
+  dispatch(changeLandSuccessFilter(payload));
 };
