@@ -28,12 +28,16 @@ const SingleItem = ({ data }) => {
           </h3>
           <h3 className="mb-2">
             Successful Launch:{" "}
-            <span className="value">{data?.launch_success.toString()}</span>
+            <span className="value">
+              {data?.launch_success
+                ? data?.launch_success?.toString()
+                : `false`}
+            </span>
           </h3>{" "}
           <h3 className="mb-2">
             Successful Landing:{" "}
             <span className="value">
-              {data?.rocket?.first_stage?.cores[0]?.land_success
+              {data?.rocket?.first_stage?.cores[0]?.land_success !== null
                 ? data?.rocket?.first_stage?.cores[0]?.land_success?.toString()
                 : "false"}
             </span>

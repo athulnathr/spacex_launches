@@ -5,6 +5,7 @@ import {
   CHANGE_LAUNCH_YEAR_FILTER,
   CHANGE_SUCCESSFUL_LAUNCH_FILTER,
   CHANGE_SUCCESSFUL_LAND_FILTER,
+  INITIAL_FILTERS_SET,
 } from "./Types";
 
 const initalState = {
@@ -51,6 +52,11 @@ const ListingReducer = (state = initalState, action) => {
       return {
         ...state,
         successfulLanding: action.payload,
+      };
+    case INITIAL_FILTERS_SET:
+      return {
+        ...state,
+        ...action.payload,
       };
     default:
       return state;

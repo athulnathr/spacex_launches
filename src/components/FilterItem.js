@@ -6,7 +6,7 @@ const FilterItem = (props) => {
   return (
     <button
       className={["filter-item", active ? "active" : ""].join(" ")}
-      onClick={() => onChange(value)}
+      onClick={() => (!active ? onChange(value) : onChange(null))}
     >
       {value}
     </button>

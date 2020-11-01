@@ -5,6 +5,7 @@ import {
   changeLauchYearFilter,
   changeLaunchSuccessFilter,
   changeLandSuccessFilter,
+  setinitlalFilters,
 } from "./ActionTypes";
 
 import axios from "axios";
@@ -12,19 +13,35 @@ import { LISTING_LAUNCHES } from "../../constants/ApiRoutes";
 
 export const fetchLaunches = () => async (dispatch, getState) => {
   dispatch(toggleLauchesListingLoading(true));
-  // try {
-  //   const { data, status } = await axios.get(LISTING_LAUNCHES, {});
-  //   if (200 === status) {
-  //     dispatch(lauchesListingDone(data));
-  //   } else {
-  //     dispatch(
-  //       lauchesListingError({ status: 500, message: "Some Error Occured" })
-  //     );
-  //   }
-  // } catch (error) {
-  //   dispatch(lauchesListingError(error));
-  //   console.log(error, "error on fetch call");
-  // }
+  try {
+    const {
+      lauchYear,
+      successfulLaunch,
+      successfulLanding,
+    } = getState().listing;
+
+    const params = {
+      launch_year: lauchYear !== null ? lauchYear : undefined,
+      launch_success:
+        successfulLaunch === `true` ? successfulLaunch : undefined,
+      land_success:
+        successfulLanding === `true` ? successfulLanding : undefined,
+    };
+
+    console.log(params, lauchYear, successfulLaunch, successfulLanding);
+
+    const { data, status } = await axios.get(LISTING_LAUNCHES, { params });
+    if (200 === status) {
+      dispatch(lauchesListingDone(data));
+    } else {
+      dispatch(
+        lauchesListingError({ status: 500, message: "Some Error Occured" })
+      );
+    }
+  } catch (error) {
+    dispatch(lauchesListingError(error));
+    console.log(error, "error on fetch call");
+  }
 };
 
 export const launchYearFilterChange = (payload) => (dispatch) => {
@@ -37,4 +54,8 @@ export const launchSuccessFilterChange = (payload) => (dispatch) => {
 
 export const landSuccessFilterChange = (payload) => (dispatch) => {
   dispatch(changeLandSuccessFilter(payload));
+};
+
+export const setInitalFilters = (query) => (dispatch) => {
+  dispatch(setinitlalFilters(query));
 };

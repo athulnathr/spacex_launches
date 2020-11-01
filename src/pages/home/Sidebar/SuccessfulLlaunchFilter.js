@@ -1,21 +1,40 @@
 import React from "react";
 import FilterItem from "../../../components/FilterItem";
 import FilterSet from "../../../components/FIlterSet";
-const SuccessfulLlaunchFilter = () => {
+
+import { launchSuccessFilterChange } from "../../../store/Listing/Actions";
+import { connect } from "react-redux";
+const SuccessfulLlaunchFilter = (props) => {
+  const { value, onChange } = props;
   return (
     <FilterSet title="Successful Launch">
       <FilterItem
-        active={true}
+        active={value === "true"}
         value={`true`}
-        onChange={(e) => console.log(e)}
+        onChange={(e) => onChange(e)}
       />
       <FilterItem
-        active={false}
+        active={value === "false"}
         value={`false`}
-        onChange={(e) => console.log(e)}
+        onChange={(e) => onChange(e)}
       />
     </FilterSet>
   );
 };
 
-export default SuccessfulLlaunchFilter;
+const mapStateToProps = (state) => {
+  return {
+    value: state.listing.successfulLaunch,
+  };
+};
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    onChange: (payload) => dispatch(launchSuccessFilterChange(payload)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(SuccessfulLlaunchFilter);

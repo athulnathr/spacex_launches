@@ -5,6 +5,7 @@ import {
   CHANGE_LAUNCH_YEAR_FILTER,
   CHANGE_SUCCESSFUL_LAUNCH_FILTER,
   CHANGE_SUCCESSFUL_LAND_FILTER,
+  INITIAL_FILTERS_SET,
 } from "./Types";
 
 export const toggleLauchesListingLoading = (payload) => {
@@ -42,7 +43,14 @@ export const changeLaunchSuccessFilter = (payload) => {
 };
 export const changeLandSuccessFilter = (payload) => {
   return {
-    type: CHANGE_SUCCESSFUL_LAND_FILTER_FILTER,
+    type: CHANGE_SUCCESSFUL_LAND_FILTER,
+    payload,
+  };
+};
+
+export const setinitlalFilters = (payload) => {
+  return {
+    type: INITIAL_FILTERS_SET,
     payload,
   };
 };
