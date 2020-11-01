@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build:dev": "webpack --mode=’development’",
-    "build:prod": "webpack --hot=true --mode=’production’",
+    "build": "webpack --hot=true --mode=production",
     "dev": "webpack-dev-server"
   }
 }
