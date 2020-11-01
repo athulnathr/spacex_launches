@@ -28,8 +28,6 @@ export const fetchLaunches = () => async (dispatch, getState) => {
         successfulLanding === `true` ? successfulLanding : undefined,
     };
 
-    console.log(params, lauchYear, successfulLaunch, successfulLanding);
-
     const { data, status } = await axios.get(LISTING_LAUNCHES, { params });
     if (200 === status) {
       dispatch(lauchesListingDone(data));
