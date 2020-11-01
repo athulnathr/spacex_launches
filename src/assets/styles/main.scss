@@ -6,9 +6,19 @@
 body {
   font-family: "Roboto Condensed", sans-serif;
   background: #eeeeee;
+  .loading_card {
+    background: #ffffff;
+  }
   .card {
     border: none;
     background: #ffffff;
+    align-items: stretch;
+    display: flex;
+    align-items: flex-start;
+    align-content: stretch;
+    justify-content: center;
+    justify-self: stretch;
+    flex-grow: 1;
   }
   .filter-set {
     .filter-set-title {

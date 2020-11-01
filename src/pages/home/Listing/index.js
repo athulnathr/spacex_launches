@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 const Listing = (props) => {
   const { loading, data } = props;
   return (
-    <div className="col-sm-8 col-lg-9">
+    <div className="col-sm-8 col-lg-9 col-xs-12">
       <div className="row">
         {loading && <Loading />}
         {!loading &&
