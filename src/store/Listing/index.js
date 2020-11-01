@@ -11,9 +11,9 @@ const initalState = {
   listLoadig: true,
   listData: null,
   listingError: null,
-  lauchYear: 2006,
-  successfulLaunch: true,
-  successfulLanding: true,
+  lauchYear: undefined,
+  successfulLaunch: null,
+  successfulLanding: null,
 };
 
 const ListingReducer = (state = initalState, action) => {

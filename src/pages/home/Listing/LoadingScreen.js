@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   const loader = [...Array.from(new Array(12))].map((_i, k) => (
-    <div className="col-sm-3">
+    <div className="col-sm-3" key={Math.random()}>
       <div className="card mb-1">
         <div className="p-3">
           <div

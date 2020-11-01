@@ -25,9 +25,39 @@ body {
     border-radius: 5px;
     margin: 0.25rem 0.75rem;
     text-transform: capitalize;
-    &.active {
+    cursor: pointer;
+    transition: all linear 0.3s;
+    &.active,
+    &:hover {
       background: #4caf50;
     }
+  }
+}
+.single_card {
+  .image {
+    width: 100%;
+    display: block;
+    background: #eee;
+    margin-bottom: 1rem;
+  }
+  ul {
+    padding-left: 2rem;
+    li {
+      list-style: disc;
+      margin: 0.5rem 0;
+    }
+  }
+  .value {
+    color: #8a8a8a;
+    font-size: 75%;
+    text-transform: capitalize;
+  }
+  .mission_title {
+    color: #2c2cf2;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 16px;
   }
 }
 

@@ -10,7 +10,8 @@ const Listing = (props) => {
     <div className="col-sm-8 col-lg-9">
       <div className="row">
         {loading && <Loading />}
-        {!loading && data && <SingleItem />}
+        {!loading &&
+          data?.map((item, index) => <SingleItem key={index} data={item} />)}
       </div>
     </div>
   );
