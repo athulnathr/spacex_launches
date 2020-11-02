@@ -15,16 +15,16 @@ const Home = (props) => {
     setInitalFilters,
   } = props;
   useEffect(() => {
-    fetchLaunches();
-
-    const new_query = {
-      lauchYear: lauchYear !== null ? lauchYear : undefined,
-      successfulLaunch:
-        successfulLaunch !== null ? successfulLaunch : undefined,
-      successfulLanding:
-        successfulLanding !== null ? successfulLanding : undefined,
-    };
     if (lauchYear || successfulLaunch || successfulLanding) {
+      const new_query = {
+        lauchYear: lauchYear !== null ? lauchYear : undefined,
+        successfulLaunch:
+          successfulLaunch !== null ? successfulLaunch : undefined,
+        successfulLanding:
+          successfulLanding !== null ? successfulLanding : undefined,
+      };
+      fetchLaunches();
+
       var newRelativePathQuery =
         window.location.pathname + "?" + queryString.stringify(new_query);
       history.pushState(null, "", newRelativePathQuery);
@@ -32,7 +32,11 @@ const Home = (props) => {
   }, [lauchYear, successfulLaunch, successfulLanding]);
 
   useEffect(() => {
-    setInitalFilters(queryString.parse(location.search));
+    if (location.search.length !== 0) {
+      setInitalFilters(queryString.parse(location.search));
+    } else {
+      fetchLaunches();
+    }
   }, []);
   return (
     <>

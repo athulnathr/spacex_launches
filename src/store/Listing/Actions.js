@@ -21,11 +21,9 @@ export const fetchLaunches = () => async (dispatch, getState) => {
     } = getState().listing;
 
     const params = {
-      launch_year: lauchYear !== null ? lauchYear : undefined,
-      launch_success:
-        successfulLaunch === `true` ? successfulLaunch : undefined,
-      land_success:
-        successfulLanding === `true` ? successfulLanding : undefined,
+      launch_year: lauchYear,
+      launch_success: successfulLaunch,
+      land_success: successfulLanding,
     };
 
     const { data, status } = await axios.get(LISTING_LAUNCHES, { params });

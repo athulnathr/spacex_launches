@@ -112,3 +112,22 @@ body {
     }
   }
 }
+.nothing-found {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  max-width: 650px;
+  margin: auto;
+  flex-direction: column;
+  img {
+    max-width: 90%;
+    display: block;
+    margin: auto;
+  }
+  h4 {
+    text-align: center;
+    margin: 1rem;
+    font-weight: bold;
+  }
+}

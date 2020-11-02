@@ -29,7 +29,8 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "style-loader": "^2.0.0"
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1"
   },
   "scripts": {
     "build:dev": "webpack --mode=’development’",

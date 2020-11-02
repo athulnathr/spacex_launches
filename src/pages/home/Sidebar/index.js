@@ -4,7 +4,7 @@ import SuccessfulLandingFilter from "./SuccessfulLandingFilter";
 import LaunchYearFilter from "./LaunchYearFilter";
 const Sidebar = () => {
   return (
-    <div className="col-lg-3 col-sm-4 col-xs-12 mb-1">
+    <div className="col-lg-3 col-sm-6 col-xs-12 mb-1">
       <div className="card">
         <div className="p-2">
           <LaunchYearFilter />

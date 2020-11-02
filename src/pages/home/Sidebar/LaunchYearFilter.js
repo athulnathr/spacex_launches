@@ -12,7 +12,7 @@ const LaunchYearFilter = (props) => {
       {[...Array(end_year - (start_year - 1))].map((_, index) => (
         <FilterItem
           key={index}
-          active={start_year + index === lauchYear}
+          active={start_year + index === parseInt(lauchYear)}
           value={start_year + index}
           onChange={(e) => launchYearFilterChange(e)}
         />
