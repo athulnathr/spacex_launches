@@ -2,7 +2,7 @@ import React from "react";
 
 const SingleItem = ({ data }) => {
   return (
-    <div className="col-sm-6 col-lg-4 col-xs-12 mb-1">
+    <div className="col-sm-6 col-md-6 col-lg-3 col-xs-12 mb-1">
       <div className="card single_card">
         <div className="p-3">
           <img
